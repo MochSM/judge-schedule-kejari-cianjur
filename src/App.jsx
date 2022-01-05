@@ -1,8 +1,39 @@
 import { useState, useEffect } from 'react';
+import DataTable from 'react-data-table-component';
 
 import logo from './logo.png';
 import './App.css';
 
+const columns = [
+  {
+    name: 'Nama',
+    selector: (row) => row.nama,
+    sortable: true,
+  },
+  {
+    name: 'JPU',
+    selector: (row) => row.jpu,
+    sortable: true,
+  },
+  {
+    name: 'Agenda',
+    selector: (row) => row.agenda,
+    sortable: true,
+  },
+];
+
+const data = [
+  {
+    id: 1,
+    title: 'Beetlejuice',
+    year: '1988',
+  },
+  {
+    id: 2,
+    title: 'Ghostbusters',
+    year: '1984',
+  },
+];
 function App() {
   const [agenda, setAgenda] = useState([]);
 
@@ -48,33 +79,9 @@ function App() {
           </h3>
         </div>
       </div>
-      <table className='table table-bordered mt-5'>
-        <thead>
-          <tr>
-            <th scope='col'>#</th>
-            <th scope='col'>Nama</th>
-            <th scope='col'>Pasal Dakwaan</th>
-            <th scope='col'>JPU</th>
-            <th scope='col'>Hakim</th>
-            <th scope='col'>Agenda</th>
-          </tr>
-        </thead>
-        <tbody>
-          {agenda &&
-            agenda.map((el, i) => {
-              return (
-                <tr key={i}>
-                  <th scope='row'>{i + 1}</th>
-                  <td>{el.nama}</td>
-                  <td>{el.pasalDakwaan}</td>
-                  <td>{el.jpu}</td>
-                  <td>{el.hakim}</td>
-                  <td>{el.agenda}</td>
-                </tr>
-              );
-            })}
-        </tbody>
-      </table>
+      <div className='mt-5'>
+        <DataTable columns={columns} data={agenda} />
+      </div>
     </div>
   );
 }

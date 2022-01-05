@@ -4,9 +4,7 @@ export default function Input() {
   const [agenda, setAgenda] = useState([]);
   const [formData, setFormData] = useState({
     nama: '',
-    pasalDakwaan: '',
     jpu: '',
-    hakim: '',
     agenda: '',
   });
 
@@ -62,9 +60,7 @@ export default function Input() {
 
     setFormData({
       nama: '',
-      pasalDakwaan: '',
       jpu: '',
-      hakim: '',
       agenda: '',
     });
   };
@@ -91,19 +87,6 @@ export default function Input() {
           />
         </div>
         <div className='mb-3'>
-          <label htmlFor='pasalDakwaan' className='form-label'>
-            Pasal Dakwaan
-          </label>
-          <input
-            type='text'
-            onChange={handleFormChange}
-            className='form-control'
-            id='pasalDakwaan'
-            value={formData.pasalDakwaan}
-            required
-          />
-        </div>
-        <div className='mb-3'>
           <label htmlFor='jpu' className='form-label'>
             JPU
           </label>
@@ -113,19 +96,6 @@ export default function Input() {
             className='form-control'
             id='jpu'
             value={formData.jpu}
-            required
-          />
-        </div>
-        <div className='mb-3'>
-          <label htmlFor='hakim' className='form-label'>
-            Hakim
-          </label>
-          <input
-            type='text'
-            onChange={handleFormChange}
-            className='form-control'
-            id='hakim'
-            value={formData.hakim}
             required
           />
         </div>
@@ -154,9 +124,7 @@ export default function Input() {
           <tr>
             <th scope='col'>#</th>
             <th scope='col'>Nama</th>
-            <th scope='col'>Pasal Dakwaan</th>
             <th scope='col'>JPU</th>
-            <th scope='col'>Hakim</th>
             <th scope='col'>Agenda</th>
             <th scope='col'></th>
           </tr>
@@ -168,9 +136,7 @@ export default function Input() {
                 <tr key={i}>
                   <th scope='row'>{i + 1}</th>
                   <td>{el.nama}</td>
-                  <td>{el.pasalDakwaan}</td>
                   <td>{el.jpu}</td>
-                  <td>{el.hakim}</td>
                   <td>{el.agenda}</td>
                   <td className='text-center'>
                     <button onClick={() => handleDeleteItem(el.id)}>
